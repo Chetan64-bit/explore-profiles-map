@@ -1,0 +1,52 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 12px;
+  color: #333;
+}
+
+.description {
+  font-size: 0.95rem;
+  margin-top: 6px;
+  color: #666;
+}
+
+.button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1565c0;
+}
+
+.nameLink {
+  text-decoration: none;
+  color: royalblue;
+  font-weight: bold;
+}
+
+.nameLink:hover {
+  text-decoration: underline;
+}

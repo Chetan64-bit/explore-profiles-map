@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Tony Stark",
+    "photo": "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/tony_stark.png",
+    "description": "Genius billionaire, Iron Man",
+    "address": "Malibu, California, USA",
+    "contact": "tony@starkindustries.com",
+    "interests": "Technology, AI, Suits"
+  },
+  {
+    "id": 2,
+    "name": "Steve Rogers",
+    "photo": "https://images.alphacoders.com/112/thumb-1920-1127535.jpg",
+    "description": "Captain America, Super Soldier",
+    "address": "Brooklyn, New York, USA",
+    "contact": "steve@avengers.com",
+    "interests": "Justice, Leadership, Shield"
+  },
+  {
+    "id": 3,
+    "name": "Natasha Romanoff",
+    "photo": "https://images8.alphacoders.com/107/thumb-1920-1072048.jpg",
+    "description": "Black Widow, Former Spy",
+    "address": "Stalingrad, Russia",
+    "contact": "natasha@shield.com",
+    "interests": "Espionage, Martial Arts"
+  },
+  {
+    "id": 4,
+    "name": "Bruce Banner",
+    "photo": "https://images4.alphacoders.com/651/thumb-1920-651028.jpg",
+    "description": "Scientist, The Hulk",
+    "address": "Dayton, Ohio, USA",
+    "contact": "bruce@greenrage.com",
+    "interests": "Gamma Research, Meditation"
+  },
+  {
+  "id": 5,
+  "name": "Dr. Stephen Strange",
+  "photo": "https://artfiles.alphacoders.com/978/thumb-1920-97812.jpg",
+  "description": "Master of the Mystic Arts, Sorcerer Supreme",
+  "address": "177A Bleecker Street, New York, NY",
+  "contact": "strange@kamar-taj.com",
+  "interests": "Magic, Multiverse, Time Travel"
+}
+]
