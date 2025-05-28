@@ -31,6 +31,12 @@ The app allows users to view a list of professional profiles, see address-based 
 
 ---
 
+## 🚀 Live Project
+
+👉 [View Live](explore-profiles-map.vercel.app)
+
+---
+
 ## 📁 Project Setup
 
 To run locally:
@@ -38,3 +44,4 @@ To run locally:
 ```bash
 npm install
 npm run dev   # or npm start if using CRA
+
