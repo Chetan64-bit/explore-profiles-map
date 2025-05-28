@@ -33,7 +33,8 @@ The app allows users to view a list of professional profiles, see address-based 
 
 ## 🚀 Live Project
 
-👉 [View Live](explore-profiles-map.vercel.app)
+👉 view live 
+[https://explore-profiles-map.vercel.app/]
 
 ---
 
