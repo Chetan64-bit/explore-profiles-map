@@ -1,5 +1,5 @@
 # explore-profiles-map
-# 🗺️ Explore Profiles Map – React Frontend Case Study
+# 🗺️ Explore Profiles Map – React Frontend
 
 This is a frontend case study project built with **React**, **CSS Modules**, and **Leaflet.js**.
 
