@@ -1,31 +1,50 @@
-import {useParams} from 'react-router-dom';
-import profiles from "../data/profiles.json";
+import { Link, useParams } from 'react-router-dom';
+import MapView from "../components/MapView";
+import { loadProfiles } from "../data/profileStore";
+import styles from "./ProfileDetail.module.css";
 
 const ProfileDetail = () => {
-    const{id}= useParams();
-    const profile = profiles.find((P) => P.id === id ===parseInt(id));
+    const { id } = useParams();
+    const profiles = loadProfiles();
+    const profile = profiles.find((item) => String(item.id) === id);
 
-    if (!profile) return <div>Profile not found</div>;
+    if (!profile) {
+        return <main className={styles.page}><Link className={styles.backLink} to="/">← BACK TO DIRECTORY</Link><p className={styles.notFound}>Profile not found.</p></main>;
+    }
+
     return (
-        <div style={{ padding: "24px", maxWidth: "800px", margin: "0 auto" }}>
-            <img
-            src={profile.image}
-            alt={profile.name}
-            style={{ width: "150px", borderRadius: "50%" }}
-            />
-
-            <h1 style={{ fontSize: "28px", marginTop: "20px" }}>{profile.name}</h1>
-            <p style={{ fontStyle: "italic" }}>{profile.descreption}</p>
-            <p><strong>Contact:</strong>{profile.contact}</p>
-            <p><strong>Interests:</strong>{profile.intresrt}</p>
-            <p><strong>Address:</strong>{profile.address}</p>
-
-            <div style={{ marginTop: "30px" }}>
-                <h3>Location on Map:</h3>
-                <mapView address={profile.address} />
-            </div>
-
-        </div>
+        <main className={styles.page}>
+            <header className={styles.topbar}>
+                <Link to="/" className={styles.wordmark}><span>E</span> EXPLORE</Link>
+                <Link to="/admin" className={styles.adminLink}>ADMIN <i /></Link>
+            </header>
+            <Link className={styles.backLink} to="/">← BACK TO DIRECTORY</Link>
+            <section className={styles.profileLayout}>
+                <div className={styles.profileMain}>
+                    <div className={styles.entryLabel}><span /> FIELD ENTRY / {String(profile.id).padStart(2, "0")}</div>
+                    <div className={styles.identity}>
+                        <div className={styles.portraitWrap}>
+                            <img src={profile.photo} alt={profile.name} onError={(event) => { event.currentTarget.src = "/images/characters/tony-stark.jpg"; }} />
+                            {profile.photoSource && <a href={profile.photoSource} target="_blank" rel="noreferrer">{profile.photoCredit || "IMAGE CREDIT"}</a>}
+                        </div>
+                        <div>
+                            <h1>{profile.name}<span>.</span></h1>
+                            <p>{profile.description}</p>
+                        </div>
+                    </div>
+                    <div className={styles.dataGrid}>
+                        <div><span>LOCATION</span><strong>{profile.address}</strong></div>
+                        <div><span>CONTACT</span><strong>{profile.contact || "Not listed"}</strong></div>
+                        <div className={styles.interests}><span>INTERESTS</span><strong>{profile.interests || "Not listed"}</strong></div>
+                    </div>
+                </div>
+                <aside className={styles.mapPanel}>
+                    <div className={styles.mapHeading}><div><span>LIVE ATLAS</span><h2>Field location</h2></div><small>MAP / 01</small></div>
+                    <div className={styles.mapFrame}><MapView address={profile.address} name={profile.name} coordinates={profile.coordinates} /></div>
+                    <div className={styles.mapFoot}><span><i /> LOCKED TO PROFILE</span><span>OPENSTREETMAP DATA</span></div>
+                </aside>
+            </section>
+        </main>
     );
 
 };

@@ -1,0 +1,286 @@
+.page {
+  --acid: #d2e86c;
+  min-height: 100vh;
+  padding: 0 clamp(18px, 7.4vw, 112px) 45px;
+  color: #edf0e6;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(65, 71, 49, .14), transparent 35%),
+    #111310;
+}
+
+.topbar {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #353830;
+}
+
+.wordmark,
+.adminLink,
+.backLink {
+  color: #e7eadf;
+  text-decoration: none;
+  font: 9px 'DM Mono', monospace;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.wordmark span {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  color: #171a13;
+  background: var(--acid);
+  font: 700 12px 'Manrope', sans-serif;
+}
+
+.adminLink i,
+.entryLabel span,
+.mapFoot i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: var(--acid);
+}
+
+.backLink {
+  display: inline-block;
+  margin: 30px 0 24px;
+  color: #92978a;
+  transition: color .2s;
+}
+
+.backLink:hover,
+.wordmark:hover,
+.adminLink:hover {
+  color: var(--acid);
+}
+
+.profileLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, .83fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.profileMain {
+  padding: 22px;
+  border: 1px solid #363930;
+  background: rgba(23, 25, 21, .8);
+}
+
+.entryLabel,
+.dataGrid > div > span,
+.mapHeading > div > span,
+.mapHeading small,
+.mapFoot {
+  color: #8b9083;
+  font: 8px 'DM Mono', monospace;
+}
+
+.entryLabel {
+  color: var(--acid);
+}
+
+.entryLabel span {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.identity {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.portraitWrap {
+  flex: 0 0 100px;
+  display: grid;
+  gap: 5px;
+}
+
+.portraitWrap img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #51554a;
+  border-radius: 3px;
+  object-fit: cover;
+  background: #262921;
+}
+
+.portraitWrap a {
+  color: #9da293;
+  font: 7px/1.4 'DM Mono', monospace;
+  text-decoration: none;
+}
+
+.portraitWrap a:hover {
+  color: #d2e86c;
+}
+
+.identity h1 {
+  margin: 0;
+  color: #f0f1ea;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.identity h1 span {
+  color: var(--acid);
+}
+
+.identity p {
+  margin: 9px 0 0;
+  color: #a1a599;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.dataGrid {
+  margin-top: 31px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid #393c34;
+}
+
+.dataGrid > div {
+  min-width: 0;
+  padding: 17px 12px 17px 0;
+  display: grid;
+  gap: 9px;
+  border-bottom: 1px solid #393c34;
+}
+
+.dataGrid > div:nth-child(even) {
+  padding-left: 14px;
+  border-left: 1px solid #393c34;
+}
+
+.dataGrid > div > span {
+  color: var(--acid);
+}
+
+.dataGrid strong {
+  overflow-wrap: anywhere;
+  color: #e6e9df;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.interests {
+  grid-column: 1 / -1;
+}
+
+.mapPanel {
+  min-width: 0;
+  border: 1px solid #3b3e35;
+  background: #171915;
+}
+
+.mapHeading {
+  min-height: 61px;
+  padding: 11px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #353830;
+}
+
+.mapHeading > div > span {
+  color: var(--acid);
+}
+
+.mapHeading h2 {
+  margin: 3px 0 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.mapHeading small {
+  padding: 5px 7px;
+  border: 1px solid #43463d;
+}
+
+.mapFrame {
+  height: 430px;
+  background: #333a2d;
+}
+
+.mapFoot {
+  min-height: 31px;
+  padding: 0 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7px;
+}
+
+.mapFoot i {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+.notFound {
+  padding: 30px;
+  border: 1px solid #353830;
+  color: #a1a599;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .profileLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .mapFrame {
+    height: 350px;
+  }
+}
+
+@media (max-width: 430px) {
+  .page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .profileMain {
+    padding: 16px;
+  }
+
+  .identity {
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .portraitWrap {
+    flex-basis: 76px;
+  }
+
+  .portraitWrap img {
+    width: 76px;
+    height: 76px;
+  }
+
+  .identity h1 {
+    font-size: 29px;
+  }
+
+  .identity p {
+    font-size: 11px;
+  }
+}

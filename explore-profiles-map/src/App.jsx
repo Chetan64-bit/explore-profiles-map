@@ -1,8 +1,7 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import ProfileDetail from './pages/ProfileDetail.jsx';
-import Admain from './pages/Admin.jsx';
-import ProfileDetail from './pages/ProfileDetail.jsx';
+import Admin from './pages/Admin.jsx';
 
 function App() {
     return(
@@ -10,8 +9,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/profile/:id" element={<ProfileDetail />} />
-                <Route path="/admin" element={<Admain />} />
-                <Route path="/profile/:id" element={<ProfileDetail />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
         </Router>
     );

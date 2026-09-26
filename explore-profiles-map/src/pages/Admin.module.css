@@ -1,0 +1,111 @@
+.page {
+  --acid: #d2e86c;
+  min-height: 100vh;
+  padding: 0 clamp(18px, 7.4vw, 112px) 40px;
+  color: #edf0e6;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(65, 71, 49, .13), transparent 35%),
+    #111310;
+}
+
+.topbar {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #353830;
+}
+
+.wordmark,
+.topbar nav {
+  color: #e7eadf;
+  text-decoration: none;
+  font: 9px 'DM Mono', monospace;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.wordmark span {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  color: #171a13;
+  background: var(--acid);
+  font: 700 12px 'Manrope', sans-serif;
+}
+
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.topbar nav a {
+  color: #e7eadf;
+  text-decoration: none;
+}
+
+.topbar nav > span {
+  color: var(--acid);
+}
+
+.topbar nav i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: var(--acid);
+}
+
+.intro {
+  padding: 34px 0 28px;
+}
+
+.eyebrow {
+  width: max-content;
+  padding: 5px 8px;
+  border: 1px solid #9cb34d;
+  color: var(--acid);
+  font: 8px 'DM Mono', monospace;
+}
+
+.eyebrow span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--acid);
+}
+
+.intro h1 {
+  margin: 13px 0 0;
+  color: #f0f1ea;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.intro h1 span {
+  color: var(--acid);
+}
+
+.intro p {
+  margin: 11px 0 0;
+  color: #9b9f94;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

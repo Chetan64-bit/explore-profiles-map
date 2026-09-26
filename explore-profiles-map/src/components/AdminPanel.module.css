@@ -1,0 +1,215 @@
+.adminGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.formPanel,
+.rosterPanel {
+  min-width: 0;
+  border: 1px solid #383b33;
+  background: rgba(23, 25, 21, .88);
+}
+
+.formPanel {
+  padding: 17px;
+}
+
+.sectionHeading {
+  min-height: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #393c34;
+}
+
+.sectionHeading > div > span {
+  color: #d2e86c;
+  font: 8px 'DM Mono', monospace;
+}
+
+.sectionHeading h2 {
+  margin: 4px 0 0;
+  color: #edf0e6;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sectionHeading > b {
+  color: #73786c;
+  font: 8px 'DM Mono', monospace;
+  font-weight: 400;
+}
+
+.formGrid {
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.formGrid label {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  color: #9da293;
+  font: 8px 'DM Mono', monospace;
+  text-transform: uppercase;
+}
+
+.formGrid .wide {
+  grid-column: 1 / -1;
+}
+
+.formGrid input {
+  width: 100%;
+  height: 37px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid #41443b;
+  border-radius: 2px;
+  outline: none;
+  color: #edf0e6;
+  background: #121410;
+  font: 11px 'Manrope', sans-serif;
+  text-transform: none;
+  transition: border-color .2s;
+}
+
+.formGrid input::placeholder {
+  color: #6f7469;
+}
+
+.formGrid input:focus {
+  border-color: #a8bc59;
+}
+
+.formActions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.formActions p {
+  margin: 0;
+  color: #92978b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.formActions button {
+  min-height: 35px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #b4ca56;
+  border-radius: 2px;
+  color: #151711;
+  background: #d2e86c;
+  cursor: pointer;
+  font: 8px 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+.formActions button b {
+  font: 17px 'Manrope', sans-serif;
+}
+
+.rosterPanel {
+  padding: 17px;
+}
+
+.rosterList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rosterList li {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #34372f;
+}
+
+.rosterList li:last-child {
+  border-bottom: 0;
+}
+
+.recordIndex {
+  color: #d2e86c;
+  font: 8px 'DM Mono', monospace;
+}
+
+.recordDetails {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.recordDetails strong {
+  overflow: hidden;
+  color: #e9ece2;
+  font-size: 11px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recordDetails span {
+  overflow: hidden;
+  color: #858a7e;
+  font: 8px 'DM Mono', monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deleteButton {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #41443b;
+  border-radius: 2px;
+  color: #b3b8a9;
+  background: transparent;
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+  transition: border-color .2s, color .2s;
+}
+
+.deleteButton:hover {
+  border-color: #d1816a;
+  color: #e49a82;
+}
+
+@media (max-width: 900px) {
+  .adminGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .formPanel,
+  .rosterPanel {
+    padding: 13px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGrid .wide {
+    grid-column: auto;
+  }
+
+  .formActions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

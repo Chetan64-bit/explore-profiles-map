@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { loadProfiles } from "../data/profileStore";
+import styles from "./AdminPanel.module.css";
 
 const AdminPanel = () => {
-  const [profiles, setProfiles] = useState(() => {
-    const stored = localStorage.getItem("profiles");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const [profiles, setProfiles] = useState(loadProfiles);
+  const [feedback, setFeedback] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -26,8 +26,8 @@ const AdminPanel = () => {
   };
 
   const handleAdd = () => {
-    if (!formData.name || !formData.address) {
-      alert("Name and address are required!");
+    if (!formData.name.trim() || !formData.address.trim()) {
+      setFeedback("Name and location are required.");
       return;
     }
 
@@ -37,6 +37,7 @@ const AdminPanel = () => {
     };
 
     setProfiles((prev) => [...prev, newProfile]);
+    setFeedback(`${newProfile.name} added to the roster.`);
 
     setFormData({
       name: "",
@@ -54,25 +55,35 @@ const AdminPanel = () => {
   };
 
   return (
-    <div>
-      <h2>Add New Profile</h2>
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
-      <input name="photo" placeholder="Photo URL" value={formData.photo} onChange={handleChange} />
-      <input name="description" placeholder="Description" value={formData.description} onChange={handleChange} />
-      <input name="address" placeholder="Address" value={formData.address} onChange={handleChange} />
-      <input name="contact" placeholder="Contact" value={formData.contact} onChange={handleChange} />
-      <input name="interests" placeholder="Interests" value={formData.interests} onChange={handleChange} />
-      <button onClick={handleAdd}>Add Profile</button>
+    <div className={styles.adminGrid}>
+      <section className={styles.formPanel}>
+        <div className={styles.sectionHeading}><div><span>NEW RECORD</span><h2>Add profile</h2></div><b>01 / 02</b></div>
+        <div className={styles.formGrid}>
+          <label>Name <input name="name" placeholder="Full name" value={formData.name} onChange={handleChange} /></label>
+          <label>Location <input name="address" placeholder="City, region, country" value={formData.address} onChange={handleChange} /></label>
+          <label className={styles.wide}>Description <input name="description" placeholder="Role or short description" value={formData.description} onChange={handleChange} /></label>
+          <label>Photo URL <input name="photo" type="url" placeholder="https://" value={formData.photo} onChange={handleChange} /></label>
+          <label>Contact <input name="contact" type="email" placeholder="name@example.com" value={formData.contact} onChange={handleChange} /></label>
+          <label className={styles.wide}>Interests <input name="interests" placeholder="Separate interests with commas" value={formData.interests} onChange={handleChange} /></label>
+        </div>
+        <div className={styles.formActions}>
+          <p role="status">{feedback || "Required fields are marked by the form."}</p>
+          <button onClick={handleAdd}><span>ADD TO ROSTER</span><b>+</b></button>
+        </div>
+      </section>
 
-      <h2>All Profiles</h2>
-      <ul>
-        {profiles.map((p) => (
-          <li key={p.id}>
-            <strong>{p.name}</strong> — {p.address}
-            <button onClick={() => handleDelete(p.id)}>❌</button>
-          </li>
-        ))}
-      </ul>
+      <section className={styles.rosterPanel}>
+        <div className={styles.sectionHeading}><div><span>LOCAL DATABASE / {String(profiles.length).padStart(2, "0")} RECORDS</span><h2>Current roster</h2></div><b>02 / 02</b></div>
+        <ul className={styles.rosterList}>
+          {profiles.map((profile, index) => (
+            <li key={profile.id}>
+              <span className={styles.recordIndex}>{String(index + 1).padStart(2, "0")}</span>
+              <div className={styles.recordDetails}><strong>{profile.name}</strong><span>{profile.address}</span></div>
+              <button className={styles.deleteButton} aria-label={`Remove ${profile.name}`} title={`Remove ${profile.name}`} onClick={() => handleDelete(profile.id)}>×</button>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 };

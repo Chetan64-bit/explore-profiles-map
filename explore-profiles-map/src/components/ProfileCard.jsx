@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./ProfileCard.module.css";
 import { Link } from 'react-router-dom';
 
-const ProfileCard =({profile, onSummaryClick}) => {
+const ProfileCard =({profile, onSummaryClick, selected, index = 0}) => {
     return(
-        <div className={styles.card}>
+        <article className={`${styles.card} ${selected ? styles.selected : ""}`} style={{ "--card-index": index }}>
+            <div className={styles.cardTopline}><span>ENTRY / {String(profile.id).padStart(2, "0")}</span><span className={styles.pin} aria-label={selected ? "Pinned on map" : "Not pinned"} /></div>
             <img
                src={profile.photo}
                alt={profile.name}
@@ -17,16 +18,16 @@ const ProfileCard =({profile, onSummaryClick}) => {
               <Link to={`/profile/${profile.id}`} className={styles.nameLink}>
                 <h3>{profile.name}</h3>
               </Link>
-            <div className={styles.name}>{profile.name}</div>
-            <div className={styles.descreption}>{profile.description}</div>
+            <p className={styles.description}>{profile.description}</p>
+            <p className={styles.address}>{profile.address}</p>
             <button
                 className={styles.button}
-                onClick={() => onSummaryClick(profile.id)}
-
+                onClick={onSummaryClick}
+                aria-pressed={Boolean(selected)}
             >
-                Summary 
+                <span>VIEW ON MAP</span><b aria-hidden="true">↗</b>
             </button>
-        </div>
+        </article>
     );
 
 };
